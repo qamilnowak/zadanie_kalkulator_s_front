@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
 import { HttpClient} from '@angular/common/http';
-import {FormBuilder,  FormGroup} from '@angular/forms';
+import {FormBuilder,  FormGroup, Validators} from '@angular/forms';
 import { HttpHeaders } from '@angular/common/http';
-import {send} from 'q';
+
+
 
 interface Wage {
   kwota: number;
@@ -16,14 +17,14 @@ interface Wage {
 })
 export class AppComponent implements OnInit  {
   wages = Array<Wage>();
-  newWage: Wage = {kwota: 0, waluta: 'PLN'};
+  newWage: Wage = {kwota: 1, waluta: 'PLN'};
   public myForm: FormGroup;
   constructor(private formbuilder: FormBuilder, private http: HttpClient) {}
 
   ngOnInit(): void {
   this.check();
     this.myForm = this.formbuilder.group({
-      kwota: '',
+      kwota: ['', [Validators.min(0), Validators.required]],
       waluta: ''
     });
     setInterval(() => {
