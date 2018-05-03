@@ -1,0 +1,41 @@
+<mat-toolbar>
+  <mat-toolbar-row>
+    <span>Kalkulator wynagrodzeń:</span>
+  </mat-toolbar-row>
+</mat-toolbar>
+
+<mat-card *ngFor="let wag of wages">
+  <mat-card-title><span>Wynagrodzenie netto: </span></mat-card-title>
+  <mat-card-content>
+    <span>{{wag.kwota}} PLN</span>
+  </mat-card-content>
+</mat-card>
+
+<form [formGroup]="myForm" novalidate>
+<mat-card >
+  <mat-card-title><span>Wrowadź dzienną stawkę i walutę:</span></mat-card-title>
+  <mat-card-content>
+    <mat-form-field class="full-width">
+      <input formControlName="kwota" matInput placeholder="Kwota" [(ngModel)]="newWage.kwota">
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-content>
+    <mat-form-field>
+      <mat-select formControlName="waluta" matInput placeholder="Waluta" [(ngModel)]="newWage.waluta" >
+        <mat-option value="PLN">PLN</mat-option>
+        <mat-option value="EUR">EUR</mat-option>
+        <mat-option value="GBP">GBP</mat-option>
+      </mat-select>
+    </mat-form-field>
+  </mat-card-content>
+  <mat-card-footer>
+    <button mat-raised-button color="primary" (click)="send()">Wyślij</button>
+  </mat-card-footer>
+</mat-card>
+</form>
+
+
+
+
+
+
