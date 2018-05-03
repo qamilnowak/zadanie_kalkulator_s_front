@@ -13,10 +13,10 @@
 
 <form [formGroup]="myForm" novalidate>
 <mat-card >
-  <mat-card-title><span>Wprowadź dzienną stawkę i walutę:</span></mat-card-title>
+  <mat-card-title><span>Wprowadź dzienną stawkę i kraj:</span></mat-card-title>
   <mat-card-content>
     <mat-form-field class="full-width">
-      <input formControlName="kwota" matInput placeholder="Kwota" [(ngModel)]="newWage.kwota">
+      <input formControlName="kwota" matInput placeholder="Stawka dzienna" [(ngModel)]="newWage.kwota">
       <mat-error *ngIf="!myForm.get('kwota').valid && myForm.get('kwota').dirty" >
         Wprowadź poprawną <strong>wartość</strong>.
       </mat-error>
@@ -25,10 +25,10 @@
   <mat-card-content>
     <mat-form-field>
 
-      <mat-select formControlName="waluta" matInput placeholder="Waluta" [(ngModel)]="newWage.waluta" >
-        <mat-option value="PLN">PLN</mat-option>
-        <mat-option value="EUR">EUR</mat-option>
-        <mat-option value="GBP">GBP</mat-option>
+      <mat-select formControlName="waluta" matInput placeholder="Kraj" [(ngModel)]="newWage.waluta" >
+        <mat-option value="PLN">Polska</mat-option>
+        <mat-option value="EUR">Niemcy</mat-option>
+        <mat-option value="GBP">Wielka Brytania</mat-option>
       </mat-select>
     </mat-form-field>
   </mat-card-content>
